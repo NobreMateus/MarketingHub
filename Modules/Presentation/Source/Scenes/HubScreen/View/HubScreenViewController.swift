@@ -1,6 +1,6 @@
 import UIKit
 import SnapKit
-
+import ViewControllerFramework
 public final class HubScreenViewController: UIViewController {
     
     let viewModel: HubScreenViewModelProtocol
@@ -45,6 +45,7 @@ public final class HubScreenViewController: UIViewController {
         let _ = viewModel.numberOfArticles.subscribe(onNext: { [weak self] _ in
             self?.tableView.reloadData()
         })
+        showMessageBox()
     }
     
     private func setupConstraints() {
