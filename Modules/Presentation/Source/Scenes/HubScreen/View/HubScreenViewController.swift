@@ -1,14 +1,17 @@
 import UIKit
 import SnapKit
-import ViewControllerFramework
+import Articles
+
 public final class HubScreenViewController: UIViewController {
     
     let viewModel: HubScreenViewModelProtocol
+    var articles: [Article] = []
     
     private lazy var tableView: UITableView = {
         $0.delegate = self
         $0.dataSource = self
         $0.separatorStyle = .none
+        $0.allowsSelection = false
         return $0
     }(UITableView())
     
@@ -38,6 +41,8 @@ public final class HubScreenViewController: UIViewController {
     private func setup() {
         view.backgroundColor = .white
         view.addSubview(tableView)
+        title = "Marketing Hub"
+        
         setupConstraints()
         let _ = viewModel.numberOfCreators.subscribe(onNext: { [weak self] _ in
             self?.tableView.reloadData()
@@ -45,7 +50,11 @@ public final class HubScreenViewController: UIViewController {
         let _ = viewModel.numberOfArticles.subscribe(onNext: { [weak self] _ in
             self?.tableView.reloadData()
         })
-        showMessageBox()
+        let _ = viewModel.articles.subscribe(onNext: { [weak self] articles in
+            self?.articles = articles
+            self?.tableView.reloadData()
+        })
+        
     }
     
     private func setupConstraints() {
@@ -56,7 +65,6 @@ public final class HubScreenViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
         }
     }
-    
 }
 
 extension HubScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -122,7 +130,7 @@ extension HubScreenViewController: UITableViewDelegate, UITableViewDataSource {
             }
             return cell
         } else {
-            let cell = ArticleCell()
+            let cell = ArticleCell(article: articles[indexPath.row])
             cell.setup()
             return cell
         }

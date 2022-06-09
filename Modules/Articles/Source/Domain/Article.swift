@@ -1,8 +1,8 @@
 public struct Article {
     
-    let title: String
-    let summary: String
-    let imageName: String
+    public let title: String
+    public let summary: String
+    public let imageName: String
     
     public init(
         title: String,

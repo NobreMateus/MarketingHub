@@ -5,6 +5,7 @@ import Articles
 
 public protocol HubScreenViewModelProtocol {
     var creators: BehaviorSubject<[Creator]> { get }
+    var articles: BehaviorSubject<[Article]> { get }
     var numberOfCreators:  BehaviorSubject<Int> { get }
     var numberOfArticles: BehaviorSubject<Int> { get }
 }
@@ -17,6 +18,8 @@ public final class HubScreenViewModel: HubScreenViewModelProtocol {
     public var numberOfCreators = BehaviorSubject<Int>(value: 0)
     public var numberOfArticles = BehaviorSubject<Int>(value: 0)
     private let disposeBag = DisposeBag()
+    
+    public var articles = BehaviorSubject<[Article]>(value: [])
     
     public init(
         getAllCreatorsUseCase: GetAllCreatorsUseCasing,
@@ -41,6 +44,7 @@ public final class HubScreenViewModel: HubScreenViewModelProtocol {
     func getAllArticles() {
         getAllArticlesUseCase.execute() { [weak self] articles in
             self?.numberOfArticles.onNext(articles.count)
+            self?.articles.onNext(articles)
         }
     }
 }
