@@ -1,17 +1,19 @@
-[
-    {
-        title: "Rocket Content",
-        site: "",
-        image: ""
-    },
-    {
-        title: "Rocket Content",
-        site: "",
-        image: ""
-    },
-    {
-        title: "Rocket Content",
-        site: "",
-        image: ""
-    },
-]
+{
+    creators: [
+        {
+            title: "Rocket Content",
+            site: "",
+            image: ""
+        },
+        {
+            title: "Rocket Content",
+            site: "",
+            image: ""
+        },
+        {
+            title: "Rocket Content",
+            site: "",
+            image: ""
+        },
+    ]
+}

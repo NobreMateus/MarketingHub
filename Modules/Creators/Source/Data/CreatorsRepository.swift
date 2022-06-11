@@ -2,7 +2,11 @@ import Foundation
 
 final public class CreatorsRepository: CreatorsRepositoryProtocol {
     
-    public init() {}
+    private let creatorsService = CreatorsService()
+    
+    public init() {
+        creatorsService.fetch()
+    }
     
     private let creators: [Creator] = [
         .init(title: "Criador 1", site: nil, image: nil),
