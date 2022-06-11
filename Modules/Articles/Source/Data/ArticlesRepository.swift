@@ -6,17 +6,16 @@ public final class ArticlesRepository: ArticlesRepositoryProtocol {
         self.getArticlesService = getArticlesService
     }
     
-    private let data: [Article] = [
-        .init(title: "Como funcionam os esquemas de Marketing Digital.", summary: "As táticas que oportunistas usam para enganar sua percepção — Marketing digital se tornou uma grande febre nos últimos anos.", imageName: ""),
-        .init(title: "titulo 2", summary: "resumo", imageName: ""),
-        .init(title: "titulo 3", summary: "resumo", imageName: ""),
-        .init(title: "titulo 4", summary: "resumo", imageName: ""),
-        .init(title: "titulo 5", summary: "resumo", imageName: ""),
-        .init(title: "titulo 6", summary: "resumo", imageName: ""),
-        .init(title: "titulo 7", summary: "resumo", imageName: ""),
-    ]
-    
     public func getAllArticles(completion: @escaping ([Article]) -> Void) {
-        completion(data)
+        getArticlesService.fetch() { articlesDTO, error in
+            let articles = articlesDTO?.articles.map {
+                Article(
+                    title: $0.title,
+                    summary: $0.summary,
+                    imageName: $0.imageName
+                )
+            }
+            completion(articles ?? [])
+        }
     }
 }

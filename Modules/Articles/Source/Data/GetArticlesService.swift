@@ -4,13 +4,16 @@ public protocol GetArticlesServiceProtocol {
     func fetch(completion: @escaping (ArticlesDTO?, Error?) -> Void)
 }
 
-final class GetArticlesService: GetArticlesServiceProtocol {
-    func fetch(completion: @escaping (ArticlesDTO?, Error?) -> Void) {
-        guard let url = URL(string: "") else {
+public final class GetArticlesService: GetArticlesServiceProtocol {
+    
+    public init() {}
+    
+    public func fetch(completion: @escaping (ArticlesDTO?, Error?) -> Void) {
+        guard let url = URL(string: "https://raw.githubusercontent.com/NobreMateus/MarketingHub/main/api/articles.json") else {
             completion(nil, nil)
             return
         }
-        URLSession.shared.dataTask(with: url){ data, _, error in
+        let dataTask = URLSession.shared.dataTask(with: url){ data, _, error in
             guard let data = data else {
                 completion(nil, error)
                 return
@@ -23,11 +26,12 @@ final class GetArticlesService: GetArticlesServiceProtocol {
             }
             
         }
+        dataTask.resume()
     }
 }
 
 public struct ArticlesDTO: Decodable {
-    var articles: [ArticlesDTO]
+    var articles: [ArticleDTO]
 }
 
 public struct ArticleDTO: Decodable {

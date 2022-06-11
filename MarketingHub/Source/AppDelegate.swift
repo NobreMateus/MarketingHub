@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let getAllCreatorsUseCase = GetAllCreatorsUseCase(
             repository: CreatorsRepository(creatorsService: GetCreatorsService())
         )
-        let getAllArticlesUseCase = GetAllArticlesUseCase(repository: ArticlesRepository())
+        let getAllArticlesUseCase = GetAllArticlesUseCase(
+            repository: ArticlesRepository(getArticlesService: GetArticlesService()))
         let viewModel = HubScreenViewModel(
             getAllCreatorsUseCase: getAllCreatorsUseCase,
             getAllArticlesUseCase: getAllArticlesUseCase
