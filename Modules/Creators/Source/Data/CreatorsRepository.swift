@@ -2,22 +2,17 @@ import Foundation
 
 final public class CreatorsRepository: CreatorsRepositoryProtocol {
     
-    private let creatorsService = CreatorsService()
+    private let creatorsService: CreatorsServiceProtocol
     
-    public init() {
-        creatorsService.fetch()
+    public init(creatorsService: CreatorsServiceProtocol) {
+        self.creatorsService = creatorsService
     }
     
-    private let creators: [Creator] = [
-        .init(title: "Criador 1", site: nil, image: nil),
-        .init(title: "Criador 2", site: nil, image: nil),
-        .init(title: "Criador 3", site: nil, image: nil),
-        .init(title: "Criador 5", site: nil, image: nil),
-        .init(title: "Criador 5", site: nil, image: nil),
-        .init(title: "Criador 5", site: nil, image: nil),
-    ]
-    
     public func getAllCreators(completion: (([Creator]) -> Void)?) {
-         completion?(creators)
+        creatorsService.fetch() { creators, error in
+            let domainCreators = creators?.creators.map { creator in
+                Creator(title: creator.title, site: URL(string: creator.site), image: URL(string: creator.image)) }
+            completion?(domainCreators ?? [])
+        }
     }
 }

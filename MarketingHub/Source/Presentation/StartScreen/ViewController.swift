@@ -5,7 +5,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let repository = CreatorsRepository()
+        let repository = CreatorsRepository(creatorsService: GetCreatorsService())
         let useCase = GetAllCreatorsUseCase(repository: repository)
         let viewModel = StartScreenViewModel(getAllCreatorsUseCase: useCase)
         let vc = StartScreenViewController(viewModel: viewModel)

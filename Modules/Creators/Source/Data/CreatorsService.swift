@@ -1,22 +1,32 @@
 import Foundation
 
-final class CreatorsService {
+public protocol CreatorsServiceProtocol {
+    func fetch(completion: @escaping ((CreatorsDTO?, Error?) -> Void))
+}
+
+public final class GetCreatorsService: CreatorsServiceProtocol {
     
-    func fetch() {
-        let session = URLSession.shared.dataTask(with: URL(string: "https://raw.githubusercontent.com/NobreMateus/MarketingHub/main/api/creator.json")!){data, response, error in
-            let creators = try! JSONDecoder().decode(CreatorsDTO.self, from: data!)
+    public init() {}
+    
+    public func fetch(completion: @escaping ((CreatorsDTO?, Error?) -> Void)) {
+        guard let url = URL(string: "https://raw.githubusercontent.com/NobreMateus/MarketingHub/main/api/creator.json") else {
+            completion(nil, nil)
+            return
+        }
+        let session = URLSession.shared.dataTask(with: url){data, response, error in
+            guard let data = data else {
+                completion(nil, error)
+                return
+            }
+            do {
+                let creators = try JSONDecoder().decode(CreatorsDTO.self, from: data)
+                completion(creators, error)
+                
+            } catch {
+                completion(nil, error)
+            }
         }
         session.resume()
     }
     
-}
-
-struct CreatorsDTO: Decodable {
-    var creators: [CreatorDTO]
-}
-
-struct CreatorDTO: Decodable {
-	var title: String
-    var site: String
-    var image: String
 }

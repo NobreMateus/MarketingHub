@@ -45,14 +45,20 @@ public final class HubScreenViewController: UIViewController {
         
         setupConstraints()
         let _ = viewModel.numberOfCreators.subscribe(onNext: { [weak self] _ in
-            self?.tableView.reloadData()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         })
         let _ = viewModel.numberOfArticles.subscribe(onNext: { [weak self] _ in
-            self?.tableView.reloadData()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         })
         let _ = viewModel.articles.subscribe(onNext: { [weak self] articles in
             self?.articles = articles
-            self?.tableView.reloadData()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         })
         
     }
