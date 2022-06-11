@@ -1,0 +1,19 @@
+{
+    "articles" : [
+        {
+            "title": "titulo 2",
+            "summary": "resumo",
+            "imageName": ""
+        },
+        {
+            "title": "titulo 2",
+            "summary": "resumo",
+            "imageName": ""
+        },
+        {
+            "title": "titulo 2",
+            "summary": "resumo",
+            "imageName": ""
+        },
+    ]
+}
