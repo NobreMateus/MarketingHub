@@ -11,7 +11,6 @@ public final class HubScreenViewController: UIViewController {
         $0.delegate = self
         $0.dataSource = self
         $0.separatorStyle = .none
-        $0.allowsSelection = false
         return $0
     }(UITableView())
     
@@ -92,6 +91,10 @@ extension HubScreenViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.backgroundColor = .red
         return cell
     }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.openArticleLink(at: indexPath.row)
+    }
 }
 
 extension HubScreenViewController: UITableViewDelegate, UITableViewDataSource {
@@ -140,5 +143,9 @@ extension HubScreenViewController: UITableViewDelegate, UITableViewDataSource {
             cell.setup()
             return cell
         }
+    }
+    
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.openArticleLink(at: indexPath.row)
     }
 }
