@@ -1,54 +1,64 @@
 {
     "articles" : [
         {
-            "title": "Artigo 1",
+            "title": "Como funcionam os esquemas de Marketing Digital",
             "summary": "resumo 1",
-            "imageName": ""
+            "imageName": "As táticas que oportunistas usam para enganar sua percepção — Marketing digital se tornou uma grande febre nos últimos anos. Como uma forte vertente do simples empreendedorismo, a ideia de utilizar técnicas de",
+            "site": "https://medium.com/startup-da-real/como-funcionam-os-esquemas-de-marketing-digital-cc97252e644d?source=search_post---------0----------------------------"
         },
         {
-            "title": "Artigo 2",
-            "summary": "resumo 2",
-            "imageName": ""
+            "title": "PORQUE O MARKETING DIGITAL FUNCIONA",
+            "summary": "Da arrogância, elitismo e pedantismo da indústria formal de propaganda — David Ogilvy, que só se tornou famoso após se formar em comunicação social pela USP. O mundo da propaganda sempre foi dividido pelo que o",
+            "imageName": "",
+            "site": "https://medium.com/o-novo-mercado/porque-o-marketing-digital-funciona-2cbb96771c36?source=search_post---------1----------------------------"
         },
         {
-            "title": "Artigo 3",
-            "summary": "resumo 3",
-            "imageName": ""
+            "title": "Não existe marketing digital: o que fazem os novos (e danosos) empreendedores da web",
+            "summary": "Gurus misteriosos propagam fórmulas prontas para vender infoprodutos, envenenando o mercado de marketing e conteúdo educativo — Meu chã",
+            "imageName": "",
+            "site": ""
         },
         {
-            "title": "Artigo 4",
-            "summary": "resumo 4",
-            "imageName": ""
+            "title": "16 passos para ser contratado em qualquer departamento de Marketing Digital",
+            "summary": "Como criar um currículo irresistível para qualquer gerente — Está buscando um emprego na área de marketing digital? Neste post te darei a",
+            "imageName": "",
+            "site": "https://medium.com/marketing-hackers/16-passos-para-ser-contratado-em-qualquer-departamento-de-marketing-digital-b13e9a1ffeb0"
         },
         {
-            "title": "Artigo 5",
-            "summary": "resumo 5",
-            "imageName": ""
+            "title": "Não existe marketing digital (parte 2): como agem e do que vivem os novos “empreendedores” da web",
+            "summary": "Na segunda parte do artigo sobre as novas práticas danosas do mercado de “marketing digital”, explico quais as maquiagens usadas por esses",
+            "imageName": "",
+            "site": "https://medium.com/vetor-cultura-digital/n%C3%A3o-existe-marketing-digital-parte-2-como-agem-e-do-que-vivem-os-novos-empreendedores-da-web-4611126dbe14"
         },
         {
-            "title": "Artigo 6",
-            "summary": "resumo 6",
-            "imageName": ""
+            "title": "As principais referências que utilizei para aprender Marketing Digital",
+            "summary": "Os melhores profissionais de marketing aprendem incessantemente. E aqui estão os recursos que me ajudaram desde 2013. — Após acompanhar",
+            "imageName": "",
+            "site": "https://medium.com/marketing-hackers/as-principais-refer%C3%AAncias-que-utilizei-para-aprender-marketing-digital-a64e8ec650e3"
         },
         {
             "title": "Artigo 7",
             "summary": "resumo 7",
-            "imageName": ""
+            "imageName": "",
+            "site": ""
         },
         {
             "title": "Artigo 8",
             "summary": "resumo 8",
-            "imageName": ""
+            "imageName": "",
+            "site": ""
         },
         {
             "title": "Artigo 9",
             "summary": "resumo 9",
-            "imageName": ""
+            "imageName": "",
+            "site": ""
         },
         {
             "title": "Artigo 10",
             "summary": "resumo 10",
-            "imageName": ""
+            "imageName": "",
+            "site": ""
         },
     ]
 }
