@@ -12,7 +12,8 @@ public final class ArticlesRepository: ArticlesRepositoryProtocol {
                 Article(
                     title: $0.title,
                     summary: $0.summary,
-                    imageName: $0.imageName
+                    imageName: $0.imageName,
+                    site: $0.site
                 )
             }
             completion(articles ?? [])

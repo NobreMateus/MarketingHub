@@ -38,6 +38,7 @@ public struct ArticleDTO: Decodable {
     var title: String
     var summary: String
     var imageName: String
+    var site: String
 }
 
 

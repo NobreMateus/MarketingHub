@@ -21,13 +21,13 @@ let project = Project(
             sources: "Source/**",
             resources: "Resources/**",
             dependencies: [
-                .xcframework(path: "../Carthage/Build/RxBlocking.xcframework"),
-                .xcframework(path: "../Carthage/Build/RxCocoa.xcframework"),
-                .xcframework(path: "../Carthage/Build/RxRelay.xcframework"),
-                .xcframework(path: "../Carthage/Build/RxSwift.xcframework"),
-                .xcframework(path: "../Carthage/Build/SnapKit.xcframework"),
-                .project(target: "Creators", path: "../Modules/Creators/"),
-                .project(target: "Presentation", path: "../Modules/Presentation/")
+                .xcframework(path: "../../Carthage/Build/RxBlocking.xcframework"),
+                .xcframework(path: "../../Carthage/Build/RxCocoa.xcframework"),
+                .xcframework(path: "../../Carthage/Build/RxRelay.xcframework"),
+                .xcframework(path: "../../Carthage/Build/RxSwift.xcframework"),
+                .xcframework(path: "../../Carthage/Build/SnapKit.xcframework"),
+                .project(target: "Creators", path: "../../Modules/Creators/"),
+                .project(target: "Presentation", path: "../../Modules/Presentation/")
             ]
         )
     ]

@@ -58,9 +58,9 @@ public final class HubScreenViewModel: HubScreenViewModelProtocol {
     }
     
     public func openArticleLink(at position: Int) {
-        let _ = try! articles.value()
+        let articles = try! articles.value()
         guard let url = URL(
-            string: "https://medium.com/startup-da-real/como-funcionam-os-esquemas-de-marketing-digital-cc97252e644d"
+            string: articles[position].site
         ) else { return }
         UIApplication.shared.open(url)
     }
